@@ -12,7 +12,7 @@
 	<groupId>com.vnpt</groupId>
 	<artifactId>shopguard</artifactId>
 	<version>1.0</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>shopguard</name>
 	<description>Demo project for Spring Boot</description>
 	<url />
