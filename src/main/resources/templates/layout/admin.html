@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title th:text="${title} + ' | Admin | ShopGuard'">Admin | ShopGuard</title>
+
+    <!-- AdminLTE CSS -->
+    <link rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/dist/css/AdminLTE.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/dist/css/skins/skin-blue.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/font-awesome/css/font-awesome.min.css}">
+
+    <style>
+        .main-header, .main-sidebar, .skin-blue .main-header .navbar, .skin-blue .main-sidebar {
+            background-color: #1f3b56;
+        }
+        .sidebar-menu > li > a {
+            color: #fff;
+        }
+        .sidebar-menu > li.active > a, .sidebar-menu > li > a:hover {
+            background-color: #0288d1;
+            color: #fff;
+        }
+        .logo-lg {
+            font-weight: bold;
+        }
+        .main-footer {
+            background: #1f3b56;
+            color: #ccc;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+    <!-- Header -->
+    <header class="main-header">
+        <a href="#" class="logo">
+            <span class="logo-mini"><b>SG</b></span>
+            <span class="logo-lg"><b>ShopGuard</b> Admin</span>
+        </a>
+        <nav class="navbar navbar-static-top">
+            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <li><a th:href="@{/admin/logout}"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="main-sidebar">
+        <section class="sidebar">
+            <ul class="sidebar-menu" data-widget="tree">
+                <li><a th:href="@{/admin}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+
+                <li class="treeview">
+                    <a href="#"><i class="fa fa-th"></i> <span>Danh mục sản phẩm</span> <i class="fa fa-angle-left pull-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li><a th:href="@{/admin/category}"><i class="fa fa-list"></i> Danh sách</a></li>
+                        <li><a th:href="@{/admin/category/create}"><i class="fa fa-plus"></i> Thêm mới</a></li>
+                    </ul>
+                </li>
+
+                <li><a th:href="@{/admin/orders}"><i class="fa fa-shopping-cart"></i> <span>Đơn hàng</span></a></li>
+                <li><a th:href="@{/admin/users}"><i class="fa fa-users"></i> <span>Người dùng</span></a></li>
+            </ul>
+        </section>
+    </aside>
+
+    <!-- Content Wrapper -->
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1 th:text="${title}"></h1>
+        </section>
+
+        <section class="content">
+            <div layout:fragment="main"></div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer text-center">
+        <strong>&copy; 2025 ShopGuard</strong> - Admin Panel
+    </footer>
+
+</div>
+
+<!-- Scripts -->
+<script th:src="@{/assets/dist/js/jQuery-2.2.0.min.js}"></script>
+<script th:src="@{/assets/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/assets/dist/js/adminlte.min.js}"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/site}">
+<head>
+    <meta charset="UTF-8">
+    <title>Giới thiệu | ShopGuard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+        .about-section {
+            background: linear-gradient(135deg, #e0f7fa, #ffffff);
+            padding: 4rem 1rem;
+        }
+        .about-card {
+            background: #fff;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #0288d1;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        p, li {
+            font-size: 1.1rem;
+            color: #455a64;
+            line-height: 1.7;
+        }
+        ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .btn-primary {
+            background: linear-gradient(90deg, #0288d1, #26c6da);
+            border-radius: 50px;
+            padding: 0.6rem 1.8rem;
+            font-weight: 600;
+            border: none;
+            color: #fff;
+            text-decoration: none;
+            transition: 0.3s;
+            display: inline-block;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(90deg, #26c6da, #0288d1);
+            transform: translateY(-2px);
+        }
+        .img-container {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .img-container img {
+            max-width: 220px;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+
+<body>
+<div layout:fragment="content">
+    <section class="about-section">
+        <div class="container about-card">
+
+            <h2>Giới thiệu về ShopGuard</h2>
+
+            <p><strong>ShopGuard</strong> là dự án thực hành kiểm thử bảo mật trên nền tảng <strong>website bán hàng đơn giản</strong>. Mục tiêu chính là giúp sinh viên ngành An toàn thông tin rèn luyện các kỹ năng kiểm thử bảo mật cơ bản.</p>
+
+            <ul>
+                <li>💻 Phát triển bằng <strong>Spring Boot</strong> & <strong>Thymeleaf</strong></li>
+                <li>🛡️ Tích hợp <strong>Spring Security</strong> bảo vệ form đăng nhập và dữ liệu</li>
+                <li>🔐 Hỗ trợ <strong>Xác thực 2 lớp (2FA)</strong> qua Email OTP</li>
+                <li>🗂️ Thực hành kiểm thử lỗ hổng: <strong>SQL Injection, XSS, Command Injection</strong>, ...</li>
+            </ul>
+
+            <p>Dự án hướng đến mục tiêu <strong>học tập</strong> và <strong>thực hành</strong> nghiêm túc, chuẩn bị nền tảng cho sinh viên ngành <strong>An toàn thông tin</strong>.</p>
+
+            <div class="text-center mt-4">
+                <a th:href="@{/}" class="btn-primary">Quay về trang chủ</a>
+            </div>
+
+            <div class="img-container">
+                <img th:src="@{/images/logo.png}" alt="ShopGuard Logo">
+            </div>
+        </div>
+    </section>
+</div>
+</body>
+</html>

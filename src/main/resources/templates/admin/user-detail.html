@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/admin}" th:with="title='Chi tiết người dùng'">
+
+<head><meta charset="UTF-8"></head>
+<body>
+<div layout:fragment="main">
+
+    <h2>Chi tiết người dùng</h2>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <p><strong>Họ tên:</strong> <span th:text="${user.fullName}"></span></p>
+            <p><strong>Email:</strong> <span th:text="${user.email}"></span></p>
+            <p><strong>Quyền:</strong> <span th:text="${user.role}"></span></p>
+            <p><strong>Ngày tạo:</strong> <span th:text="${#dates.format(user.createdAt, 'dd/MM/yyyy')}"></span></p>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

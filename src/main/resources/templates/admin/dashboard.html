@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/admin}" th:with="title='Bảng điều khiển'">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+<div layout:fragment="main">
+
+    <div class="text-center mb-4">
+        <h1 class="font-weight-bold text-primary">Bảng điều khiển quản trị</h1>
+        <div class="alert alert-info">Chào mừng bạn đến với <strong>ShopGuard Admin</strong></div>
+    </div>
+
+    <div class="row text-center">
+
+       <!-- Sản phẩm -->
+<div class="col-md-3">
+    <div class="small-box bg-aqua">
+        <div class="inner">
+            <h3 th:text="${productCount}">0</h3>
+            <p>Sản phẩm</p>
+        </div>
+        <div class="icon"><i class="fa fa-cube"></i></div>
+        <a th:href="@{/admin/product}" class="small-box-footer">Quản lý <i class="fa fa-arrow-circle-right"></i></a>
+    </div>
+</div>
+
+<!-- Danh mục -->
+<div class="col-md-3">
+    <div class="small-box bg-green">
+        <div class="inner">
+            <h3 th:text="${categoryCount}">0</h3>
+            <p>Danh mục</p>
+        </div>
+        <div class="icon"><i class="fa fa-th-list"></i></div>
+        <a th:href="@{/admin/category}" class="small-box-footer">Quản lý <i class="fa fa-arrow-circle-right"></i></a>
+    </div>
+</div>
+
+<!-- Đơn hàng -->
+<div class="col-md-3">
+    <div class="small-box bg-yellow">
+        <div class="inner">
+            <h3 th:text="${orderCount}">0</h3>
+            <p>Đơn hàng mới</p>
+        </div>
+        <div class="icon"><i class="fa fa-shopping-cart"></i></div>
+        <a th:href="@{/admin/orders}" class="small-box-footer">Quản lý <i class="fa fa-arrow-circle-right"></i></a>
+    </div>
+</div>
+
+<!-- Đánh giá -->
+<div class="col-md-3">
+    <div class="small-box bg-red">
+        <div class="inner">
+            <h3 th:text="${reviewPendingCount}">0</h3>
+            <p>Đánh giá chờ duyệt</p>
+        </div>
+        <div class="icon"><i class="fa fa-star"></i></div>
+        <a th:href="@{/admin/reviews}" class="small-box-footer">Xem chi tiết <i class="fa fa-arrow-circle-right"></i></a>
+    </div>
+</div>
+
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/admin}" th:with="title='Chi tiết đơn hàng'">
+
+<head><meta charset="UTF-8"></head>
+<body>
+<div layout:fragment="main">
+
+    <h2>Chi tiết đơn hàng</h2>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <p><strong>Mã đơn hàng:</strong> <span th:text="${order.id}"></span></p>
+            <p><strong>Khách hàng:</strong> <span th:text="${order.user.fullName}"></span></p>
+            <p><strong>Ngày đặt:</strong> <span th:text="${#dates.format(order.orderDate, 'dd/MM/yyyy')}"></span></p>
+            <p><strong>Tổng tiền:</strong> <span th:text="${order.total} + '₫'"></span></p>
+            <p><strong>Trạng thái:</strong> <span th:text="${order.status}"></span></p>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
