@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/admin}" th:with="title='Quản lý danh mục'">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+<div layout:fragment="main">
+
+    <!-- Thông báo -->
+    <div th:if="${success}" class="alert alert-success" th:text="${success}"></div>
+    <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
+
+    <!-- Form tìm kiếm -->
+    <div class="panel panel-default">
+        <div class="panel-heading">Tìm kiếm danh mục</div>
+        <div class="panel-body">
+            <form action="" method="GET" class="form-inline">
+                <input class="form-control" name="keyword" placeholder="Nhập từ khóa"
+                       th:value="${keyword}">
+                <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Tìm kiếm</button>
+                <a th:href="@{/admin/category/create}" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Thêm mới</a>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bảng danh mục -->
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+            <tr>
+                <th>#</th>
+                <th>Tên danh mục</th>
+                <th>Mô tả</th>
+                <th class="text-center">Hành động</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="model, iterStat : ${data}">
+                <td th:text="${iterStat.count}"></td> <!-- STT -->
+                <td th:text="${model.name}"></td>
+                <td th:text="${model.description}"></td>
+                <td class="text-center">
+                    <a th:href="@{'/admin/category/edit/' + ${model.id}}" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i> Sửa</a>
+                    <a th:href="@{'/admin/category/delete/' + ${model.id}}" class="btn btn-sm btn-danger"
+                       onclick="return confirm('Bạn có chắc muốn xóa danh mục này không?')">
+                        <i class="fa fa-trash"></i> Xóa
+                    </a>
+                </td>
+            </tr>
+            <tr th:if="${#lists.isEmpty(data)}">
+                <td colspan="4" class="text-center text-muted">Không có danh mục nào phù hợp.</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/site}">
+
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}">Trang chủ</title>
+
+    <!-- Font đẹp, hỗ trợ tiếng Việt -->
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background: linear-gradient(120deg, #e0f7fa, #ffffff);
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 92vh;
+            padding: 2rem;
+            animation: fadeIn 1.2s ease;
+        }
+
+        .hero img {
+            width: 220px;
+            max-width: 80%;
+            margin-bottom: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+        }
+
+        .hero h1 {
+            font-weight: 800;
+            font-size: 2.6rem;
+            color: #0288d1;
+            line-height: 1.3;
+            margin-bottom: 0.8rem;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(90deg, #0288d1, #26c6da);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #546e7a;
+            margin-bottom: 1.8rem;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn-cta {
+            padding: 0.6rem 1.8rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            color: #fff;
+            background: linear-gradient(90deg, #0288d1, #26c6da);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+        }
+
+        .btn-cta:hover {
+            background: linear-gradient(90deg, #26c6da, #0288d1);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            padding: 0.6rem 1.8rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            border: 2px solid #0288d1;
+            background-color: #fff;
+            color: #0288d1;
+            transition: 0.3s;
+        }
+
+        .btn-outline:hover {
+            background-color: #0288d1;
+            color: #fff;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(-20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        @media (min-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero img {
+                width: 260px;
+            }
+
+            .hero p {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<div layout:fragment="content">
+
+    <section class="hero">
+
+        <img th:src="@{/images/logo.png}" alt="ShopGuard Logo">
+
+        <h1>
+            <i class="bi bi-bag-check-fill"></i> 
+            <span class="highlight">Chào mừng đến với ShopGuard!</span>
+        </h1>
+
+        <p><i class="bi bi-shield-lock-fill text-primary"></i> Hệ thống bán hàng đơn giản • Bảo mật an toàn</p>
+
+        <div class="btn-group">
+            <a class="btn-cta" th:href="@{/products}"><i class="bi bi-shop"></i> Khám phá sản phẩm</a>
+            <a class="btn-outline" th:href="@{/auth/register}"><i class="bi bi-person-plus-fill"></i> Đăng ký</a>
+            <a class="btn-outline" th:href="@{/auth/login}"><i class="bi bi-box-arrow-in-right"></i> Đăng nhập</a>
+        </div>
+
+    </section>
+
+</div>
+</body>
+</html>

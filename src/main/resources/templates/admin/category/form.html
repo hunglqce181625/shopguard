@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/admin}"
+      th:with="title=${category.id != null ? 'Chỉnh sửa danh mục' : 'Thêm danh mục'}">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+<div layout:fragment="main">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading" th:text="${category.id != null ? 'Chỉnh sửa danh mục' : 'Thêm mới danh mục'}"></div>
+
+        <div class="panel-body">
+            <!-- ✅ Bắt đầu FORM -->
+            <form th:action="@{/admin/category/save}" method="POST" th:object="${category}">
+
+                <!-- ✅ Di chuyển phần hiển thị lỗi vào trong form -->
+                <div th:if="${#fields.hasGlobalErrors()}" class="alert alert-danger">
+                    <ul>
+                        <li th:each="err : ${#fields.globalErrors()}" th:text="${err}"></li>
+                    </ul>
+                </div>
+
+                <input type="hidden" th:field="*{id}"/>
+
+                <!-- Tên danh mục -->
+                <div class="form-group">
+                    <label>Tên danh mục <span class="text-danger">*</span></label>
+                    <input type="text" th:field="*{name}" class="form-control" placeholder="Nhập tên danh mục">
+                    <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger small"></div>
+                </div>
+
+                <!-- Mô tả -->
+                <div class="form-group">
+                    <label>Mô tả danh mục</label>
+                    <textarea th:field="*{description}" class="form-control" placeholder="Nhập mô tả danh mục" rows="4"></textarea>
+                    <div th:if="${#fields.hasErrors('description')}" th:errors="*{description}" class="text-danger small"></div>
+                </div>
+
+                <!-- Nút hành động -->
+                <div class="text-right">
+                    <a th:href="@{/admin/category}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Hủy</a>
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Lưu</button>
+                </div>
+
+            </form>
+            <!-- ✅ Kết thúc FORM -->
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

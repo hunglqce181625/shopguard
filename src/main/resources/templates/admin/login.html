@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng nhập Quản trị | ShopGuard</title>
+    <link rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/dist/css/AdminLTE.min.css}">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1f3b56, #0288d1);
+            color: #fff;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .login-box {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            color: #333;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        }
+        .login-box h2 {
+            text-align: center;
+            color: #0288d1;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+<div class="login-box">
+
+    <h2>Đăng nhập Admin</h2>
+
+    <!-- Thông báo lỗi -->
+    <div th:if="${param.error}" class="alert alert-danger">Tài khoản hoặc mật khẩu không chính xác.</div>
+    <div th:if="${param.logout}" class="alert alert-success">Bạn đã đăng xuất thành công.</div>
+
+    <form th:action="@{/admin/login}" method="post">
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="username" class="form-control" placeholder="Nhập email" required>
+        </div>
+
+        <div class="form-group">
+            <label>Mật khẩu</label>
+            <input type="password" name="password" class="form-control" placeholder="Nhập mật khẩu" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-sign-in"></i> Đăng nhập</button>
+    </form>
+
+</div>
+</body>
+</html>

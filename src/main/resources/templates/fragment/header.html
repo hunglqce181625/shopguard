@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>ShopGuard Navbar</title>
+  
+  <!-- Bootstrap CSS -->
+  <link th:href="@{/assets/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link th:href="@{/assets/bootstrap-icons/bootstrap-icons.css}" rel="stylesheet">
+
+  <!-- AdminLTE CSS (BỎ nếu không cần) -->
+  <!-- <link th:href="@{/assets/dist/css/AdminLTE.min.css}" rel="stylesheet"> -->
+  
+  <style>
+    .navbar-nav {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 0;
+    }
+    .navbar-nav .nav-item {
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+<div th:fragment="siteHeader">
+  <nav class="navbar navbar-expand-lg navbar-dark shadow-sm"
+       style="background: linear-gradient(90deg, #0288d1, #26c6da);">
+    <div class="container">
+      <a class="navbar-brand fw-bold fs-3" th:href="@{/}">
+        <i class="bi bi-shop-window"></i> <span class="text-warning">ShopGuard</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+              aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center fs-6 fw-medium">
+          <li class="nav-item">
+            <a class="nav-link text-white" th:href="@{/}">
+              <i class="bi bi-house-door-fill"></i> Trang chủ
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" th:href="@{/about}">
+              <i class="bi bi-info-circle-fill"></i> Giới thiệu
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" th:href="@{/products}">
+              <i class="bi bi-box-seam-fill"></i> Sản phẩm
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" th:href="@{/auth/register}">
+              <i class="bi bi-person-plus-fill"></i> Đăng ký
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" th:href="@{/auth/login}">
+              <i class="bi bi-box-arrow-in-right"></i> Đăng nhập
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- jQuery (chỉ nếu dùng AdminLTE) -->
+<!-- <script th:src="@{/assets/dist/js/jQuery-2.2.0.min.js}"></script> -->
+
+<!-- Bootstrap Bundle JS -->
+<script th:src="@{/assets/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+<!-- AdminLTE JS (bỏ nếu không cần) -->
+<!-- <script th:src="@{/assets/dist/js/pages/adminlte.min.js}"></script> -->
+</body>
+</html>

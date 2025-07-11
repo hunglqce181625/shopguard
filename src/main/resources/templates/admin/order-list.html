@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/admin}" th:with="title='Quản lý đơn hàng'">
+
+<head><meta charset="UTF-8"></head>
+<body>
+<div layout:fragment="main">
+
+    <h2>Danh sách đơn hàng</h2>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Khách hàng</th>
+                    <th>Ngày đặt</th>
+                    <th>Tổng tiền</th>
+                    <th>Trạng thái</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="order, iterStat : ${orders}">
+                    <td th:text="${iterStat.index + 1}"></td>
+                    <td th:text="${order.user.fullName}"></td>
+                    <td th:text="${#dates.format(order.orderDate, 'dd/MM/yyyy')}"></td>
+                    <td th:text="${order.total} + '₫'"></td>
+                    <td th:text="${order.status}"></td>
+                    <td>
+                        <a th:href="@{'/admin/orders/' + ${order.id}}" class="btn btn-sm btn-info">Chi tiết</a>
+                    </td>
+                </tr>
+                <tr th:if="${#lists.isEmpty(orders)}">
+                    <td colspan="6" class="text-center">Không có đơn hàng.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+</body>
+</html>
